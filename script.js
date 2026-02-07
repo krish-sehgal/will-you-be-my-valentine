@@ -12,6 +12,7 @@ const yesScreen = document.getElementById("yesScreen");
 const createLinkBtn = document.getElementById("createLinkBtn");
 const errorMsg = document.getElementById("error");
 const displayFromName = document.getElementById("displayFromName");
+const displayToName = document.getElementById("displayToName");
 
 if (!urlFrom && !urlTo) {
     mainCard.classList.add("hidden")
@@ -20,6 +21,8 @@ if (!urlFrom && !urlTo) {
     startCard.classList.add("hidden")
 
 }
+
+displayToName.innerText = urlTo;
 
 createLinkBtn.addEventListener('click', (e) => {
     e.preventDefault();
