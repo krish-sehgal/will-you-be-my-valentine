@@ -10,7 +10,8 @@ const startCard = document.getElementById("startCard")
 const mainCard = document.getElementById("mainCard");
 const yesScreen = document.getElementById("yesScreen");
 const createLinkBtn = document.getElementById("createLinkBtn");
-const errorMsg = document.getElementById("error")
+const errorMsg = document.getElementById("error");
+const displayFromName = document.getElementById("displayFromName");
 
 if (!urlFrom && !urlTo) {
     mainCard.classList.add("hidden")
@@ -125,5 +126,7 @@ function createConfetti() {
 }
 
 if (urlFrom) {
-
+    displayFromName.innerText = `— ${urlFrom}`
+} else {
+    displayFromName.innerText = '— Your Secret Admirer'
 }
