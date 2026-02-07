@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Will You Be My Valentine? 💕</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!-- Main Valentine Card -->
+    <div class="card">
+        <div id="startCard">
+            <form>
+                <input type="text" placeholder="from" required>
+                <input type="text" placeholder="to" required>
+                <button id="createLinkBtn">Generate Link</button>
+            </form>
+        </div>
+
+        <div id="mainCard">
+            <h1><span id="displayToName">Sharsti</span>,<br>Will you be my Valentine?</h1>
+            <p id="displayFromName">— Your Secret Admirer</p>
+            <div class="buttons">
+                <button id="yesBtn">YES</button>
+                <button id="noBtn">NO</button>
+            </div>
+        </div>
+
+        <div id="yesScreen" class="hidden">
+            <h1 id="displaySuccessTitle">YAY</h1>
+            <p id="displaySuccessMsg">Best decision ever</p>
+            <img id="displayGif"
+                src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExZDJqYXpmbTk5cG9vdDl2YzlyanJvYjhmd290c3cwN2NiYzl5ZDY2byZlcD12MV9naWZzX3NlYXJjaCZjdD1n/OfkGZ5H2H3f8Y/giphy.gif"
+                alt="Celebration">
+            <h2 id="displayFinalMsg">I Love You</h2>
+        </div>
+    </div>
+</body>
+<script src="script.js"></script>
+
+</html>
