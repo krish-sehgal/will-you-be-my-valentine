@@ -10,6 +10,7 @@ const startCard = document.getElementById("startCard")
 const mainCard = document.getElementById("mainCard");
 const yesScreen = document.getElementById("yesScreen");
 const createLinkBtn = document.getElementById("createLinkBtn");
+const errorMsg = document.getElementById("error")
 
 if (!urlFrom && !urlTo) {
     mainCard.classList.add("hidden")
@@ -25,35 +26,42 @@ createLinkBtn.addEventListener('click', (e) => {
     const from = document.querySelector('input[placeholder="from"]').value;
     const to = document.querySelector('input[placeholder="to"]').value;
 
-    const link = `http://127.0.0.1:5500/index.html?from=${encodeURIComponent(from)}&to=${encodeURIComponent(to)}`;
+    if (to) {
+        const link = `https://will-you-be-my-valentine-theta-five.vercel.app/?from=${encodeURIComponent(from)}&to=${encodeURIComponent(to)}`;
 
-    const a = document.createElement("a"); // Use document, not startCard
-    a.setAttribute("href", link);
-    a.setAttribute("target", "_blank"); // Open in new tab
-    a.innerText = link; // Use = not () for innerText
-    a.style.display = "block";
-    a.style.marginTop = "15px";
-    a.style.padding = "10px";
-    a.style.background = "#f0f7ff";
-    a.style.borderRadius = "8px";
-    a.style.wordBreak = "break-all";
-    a.style.textDecoration = "none";
-    a.style.color = "#ff758c";
+        const a = document.createElement("a"); // Use document, not startCard
+        a.setAttribute("href", link);
+        a.setAttribute("target", "_blank"); // Open in new tab
+        a.innerText = link; // Use = not () for innerText
+        a.style.display = "block";
+        a.style.marginTop = "15px";
+        a.style.padding = "10px";
+        a.style.background = "#f0f7ff";
+        a.style.borderRadius = "8px";
+        a.style.wordBreak = "break-all";
+        a.style.textDecoration = "none";
+        a.style.color = "#ff758c";
 
-    const buymeacoffee = document.createElement("a");
-    buymeacoffee.setAttribute("href", "https://buymeacoffee.com/krishsehgal");
-    buymeacoffee.setAttribute("target", "_blank");
-    buymeacoffee.innerText = "Buy me a Coffee"
-    buymeacoffee.style.display = "block";
-    buymeacoffee.style.marginTop = "25px";
-    buymeacoffee.style.padding = "15px";
-    buymeacoffee.style.background = "#3f99ff";
-    buymeacoffee.style.color = "#313131"
-    buymeacoffee.style.textDecoration = "none";
-    buymeacoffee.style.borderRadius = "15px";
+        const buymeacoffee = document.createElement("a");
+        buymeacoffee.setAttribute("href", "https://buymeacoffee.com/krishsehgal");
+        buymeacoffee.setAttribute("target", "_blank");
+        buymeacoffee.innerText = "Buy me a Coffee"
+        buymeacoffee.style.display = "block";
+        buymeacoffee.style.marginTop = "25px";
+        buymeacoffee.style.padding = "15px";
+        buymeacoffee.style.background = "#3f99ff";
+        buymeacoffee.style.color = "#313131"
+        buymeacoffee.style.textDecoration = "none";
+        buymeacoffee.style.borderRadius = "15px";
 
-    startCard.appendChild(a);
-    startCard.appendChild(buymeacoffee);
+        startCard.appendChild(a);
+        startCard.appendChild(buymeacoffee);
+    } else {
+        errorMsg.innerText = "aap uska naam likhna bhul gaye ha"
+        setTimeout(() => {
+            errorMsg.innerText = ""
+        }, 2000)
+    }
 })
 
 // No button escape behavior
@@ -116,17 +124,6 @@ function createConfetti() {
     }
 }
 
-// Add event listeners for real-time updates
-document.getElementById("toName").addEventListener("input", updatePreview);
-document.getElementById("fromName").addEventListener("input", updatePreview);
-document.getElementById("bgColor1").addEventListener("input", updatePreview);
-document.getElementById("bgColor2").addEventListener("input", updatePreview);
-document.getElementById("nameColor").addEventListener("input", updatePreview);
-document.getElementById("yesBtnColor").addEventListener("input", updatePreview);
-document.getElementById("successTitle").addEventListener("input", updatePreview);
-document.getElementById("successMsg").addEventListener("input", updatePreview);
-document.getElementById("finalMsg").addEventListener("input", updatePreview);
-document.getElementById("gifUrl").addEventListener("input", updatePreview);
+if (urlFrom) {
 
-// Initialize
-updatePreview();
+}
